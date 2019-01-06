@@ -4,7 +4,42 @@
 	<link href="/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
+<!-- NavBar -->
 
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+    <img src="/images/mt_logo.png" width="38" height="38" class="d-inline-block align-top" alt="">
+    </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+          
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link text-light" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="/vehicles">Vehicles</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Add Vehicle", new_vehicle_path, :class => 'btn btn-info'  %>
+            </li>
+          </ul>
+                   
+          <%= form_tag vehicles_path, class: 'form-inline my-2 my-lg-0', :method => 'get' do %>
+          <%= text_field_tag :search, params[:search], placeholder: "e.g. Honda Civic", class: 'form-control mr-sm-2' %>
+          <%= submit_tag "Search", name: nil, class: 'btn btn-outline-success my-2 my-sm-0'  %> 
+          <% end %>
+
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Body of Landing Page -->
 <div class="welcome">
 	<section class="section section--hero">
 	<div class="jumbotron">
